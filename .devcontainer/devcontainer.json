@@ -1,9 +1,12 @@
 {
   "name" : "DS101 Development Container",
-  "dockerFile" : "Dockerfile",
+  // "dockerFile" : "Dockerfile",
+  "image": "aidamian/ds101_2024",
 
   "runArgs": [
-    "--gpus=all"
+    "--gpus=all",
+    "--hostname",
+    "ds101-devcont"    
   ],
 
 

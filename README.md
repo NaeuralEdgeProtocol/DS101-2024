@@ -5,6 +5,7 @@ Welcome to 2024-2025 Data Science with Deep Learning
 This is the 7th revision of the graduate course in Data Science - a 11 lecture & hands-on labs journey in the hot field that combines programming, math, statistics, bio/physics in order to provide the today world with the most advanced information technologies: from recommender systems to chatbots, from predictive analytics to visual scene understanding and many others.
 
 
+
 ## Calendar:
 
 | Date | Course | Hands-on | Paper present. | Project present. |
