@@ -10,11 +10,10 @@ This is the 7th revision of the graduate course in Data Science - a 11 lecture &
 
 | Date | Course | Hands-on | Paper present. | Project present. |
 | --- | --- | --- | --- | --- |
-| 2023-12-16 | X | X | X | - |
-| 2024-01-06 | X | X | X | x |
-| 2024-01-13 | X | X | X | x |
-| 2024-01-20 | - | - | x | X |
-| 2024-01-27 | - | - | - | X |
+| 2024-12-16 | X | X | X | - |
+| 2025-01-13 | X | X | X | x |
+| 2025-01-20 | - | - | x | X |
+| 2025-01-27 | - | - | - | X |
 
 
 
@@ -32,6 +31,19 @@ This is the 7th revision of the graduate course in Data Science - a 11 lecture &
  - `scripts` scripts/notebooks from each interactive lecture 
  - `resources` important materials such as linear algebra, stats, etc
  - `data` folder with toy and maybe-not-so-toy datasets
+
+
+ ## Course Project Rules
+  - 1-3 students per project
+  - end-to-end small application that will have the following components:
+    - script or Jupyter notebook model definition and training - using scrapped / real life data and some basic model architecture searching techniques -> will generate a serving candidate model
+    - simple straightforward model serving backend - using Flask or FastAPI
+    - simple frontend - using Bokeh, React or Angular or anything else - for example just a simple HTML page with some data entry controls within a submittion form and a result section below the form
+
+## Course Research Highlight tips
+ - simple PPT/Slides/PDF presentation
+ - focus on the parts of the paper that you found out to be the most interesting and you liked the most
+ - value and quality over quantity
  
  
 
