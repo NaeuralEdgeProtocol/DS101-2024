@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Estate Appraisal App</title>
+</head>
+<body>
+  <h1>Real Estate Appraisal App</h1>
+
+  <form id="appraisalForm">
+    <label for="nr_cam">Number of rooms:</label>
+    <input type="number" id="nr_cam" name="nr_cam" min="1" max="10"><br><br>
+
+    <label for="mp">Surface:</label>
+    <input type="number" id="mp" name="mp" min="1" max="1000"><br><br>
+
+    <label for="parter">Ground floor:</label>
+    <input type="checkbox" id="parter" name="parter"><br><br>
+
+    <label for="et12">1-2 floors:</label>
+    <input type="checkbox" id="et12" name="et12"><br><br>
+
+    <label for="et3">3+ floors:</label>
+    <input type="checkbox" id="et3" name="et3"><br><br>
+
+    <label for="etaj_max">Max floor:</label>
+    <input type="number" id="etaj_max" name="etaj_max" min="1" max="10"><br><br>
+
+    <label for="typ_decom">Decomandat:</label>
+    <input type="checkbox" id="typ_decom" name="typ_decom"><br><br>
+
+    <label for="bloc_nou">New building:</label>
+    <input type="checkbox" id="bloc_nou" name="bloc_nou"><br><br>
+
+    <button type="submit">Appraise</button>
+  </form>
+
+  <h2 id="result"></h2>
+
+  <script>
+    document.getElementById('appraisalForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const nr_cam = parseInt(document.getElementById('nr_cam').value) || 0;
+      const mp = parseInt(document.getElementById('mp').value) || 0;
+      const parter = document.getElementById('parter').checked ? 1 : 0;
+      const et12 = document.getElementById('et12').checked ? 1 : 0;
+      const et3 = document.getElementById('et3').checked ? 1 : 0;
+      const etaj_max = parseInt(document.getElementById('etaj_max').value) || 0;
+      const typ_decom = document.getElementById('typ_decom').checked ? 1 : 0;
+      const bloc_nou = document.getElementById('bloc_nou').checked ? 1 : 0;
+
+      const data = {
+        nr_cam: nr_cam,
+        mp: mp,
+        parter: parter,
+        et12: et12,
+        et3: et3,
+        etaj_max: etaj_max,
+        typ_decom: typ_decom,
+        bloc_nou: bloc_nou
+      };
+
+      try {
+        const dataJson = JSON.stringify(data)
+        console.log(dataJson);
+        const response = await fetch('/appraise', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body:  dataJson
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log(result);
+          document.getElementById('result').innerText = 'Estimated Price: ' + result.inferred_price;
+        } else {
+          const errorData = await response.json();
+          document.getElementById('result').innerText = 'Error: ' + errorData.detail[0].msg;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('result').innerText = 'An error occurred.';
+      }
+    });
+  </script>
+</body>
+</html>
