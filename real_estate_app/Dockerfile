@@ -15,6 +15,7 @@ RUN rm requirements.txt
 # copy the rest of the files
 
 COPY ./src .
+COPY ./models ./models/
 
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5050"]
