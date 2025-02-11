@@ -1,0 +1,165 @@
+/* App.css */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start; /* Align items to the top */
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  padding-top: 60px; /* Reduced top padding */
+}
+
+.card {
+  max-width: 700px; /* Slightly wider card */
+  width: 90%; /* Occupy most of the container width */
+  padding: 30px; /* Increased padding */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column; /* Stack form elements */
+}
+
+.ingredient-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ingredient-field input {
+  flex: 1;
+  padding: 10px; /* Increased padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.remove-button,
+.add-button,
+.submit-button {
+  padding: 10px 15px; /* Adjusted button padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px; /* Consistent font size */
+}
+
+.remove-button {
+  background-color: #e74c3c; /* Red */
+  color: white;
+}
+
+.add-button {
+  background-color: #3498db; /* Blue */
+  color: white;
+  margin-bottom: 10px; /* Add some margin below the button */
+}
+
+.submit-button {
+  background-color: #4caf50; /* Green */
+  color: white;
+  margin-top: 10px; /* Add some margin above the button */
+}
+
+.remove-button:hover {
+  background-color: #c0392b; /* Darker red */
+}
+
+.add-button:hover {
+  background-color: #2980b9; /* Darker blue */
+}
+
+.submit-button:hover {
+  background-color: #43a047; /* Darker green */
+}
+
+.submit-button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.submit-button.loading {
+  background-color: #ff9800; /* Orange/amber for loading */
+}
+
+.num-recipes-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.num-recipes-field label {
+  margin-right: 10px;
+}
+
+.num-recipes-field input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60px;
+}
+
+.recipe-list {
+  margin-top: 30px;
+}
+
+.recipe-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipe-list li {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #eee; /* Lighter border */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  background-color: #f9f9f9;  /* Very light gray background */
+}
+
+.recipe-list h3 {
+  margin-top: 0;
+  font-size: 20px; /* Slightly larger title */
+  font-weight: 600; /* Slightly less bold */
+  color: #333;
+}
+
+.recipe-list p {
+  margin: 10px 0; /* Increased margin */
+  color: #555;
+  line-height: 1.6; /* Improved line height for readability */
+}
+
+.recipe-list ul ul,
+.recipe-list ol {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style-type: disc; /* Use bullet points for ingredients */
+}
+
+.recipe-list ol {
+  list-style-type: decimal; /* Use numbers for steps */
+}
+
+.recipe-list a {
+  display: inline-block;
+  margin-top: 15px; /* Increased margin */
+  color: #3498db; /* Blue link color */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.recipe-list a:hover {
+  text-decoration: underline;
+  color: #2980b9; /* Darker blue on hover */
+}
