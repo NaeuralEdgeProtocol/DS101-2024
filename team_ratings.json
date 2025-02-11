@@ -1,0 +1,790 @@
+{
+    "Malaga": {
+        "offensive": 1.895822,
+        "defensive": 0.8376075
+    },
+    "Sevilla": {
+        "offensive": 2.162736,
+        "defensive": 0.8258775
+    },
+    "Deportivo La Coruna": {
+        "offensive": 2.116873,
+        "defensive": 1.0737965
+    },
+    "Real Sociedad": {
+        "offensive": 2.206043,
+        "defensive": 1.1016665
+    },
+    "Espanyol": {
+        "offensive": 2.05264,
+        "defensive": 0.6177105
+    },
+    "Getafe": {
+        "offensive": 1.959248,
+        "defensive": 0.9228365
+    },
+    "Atletico Madrid": {
+        "offensive": 2.57975,
+        "defensive": 1.2826885
+    },
+    "Rayo Vallecano": {
+        "offensive": 2.02306,
+        "defensive": 1.1017875
+    },
+    "Valencia": {
+        "offensive": 2.068763,
+        "defensive": 0.9193085
+    },
+    "Athletic Club": {
+        "offensive": 2.302443,
+        "defensive": 1.3101505
+    },
+    "Barcelona": {
+        "offensive": 2.969011,
+        "defensive": 1.2219975
+    },
+    "Real Madrid": {
+        "offensive": 3.0,
+        "defensive": 1.2111285
+    },
+    "Levante": {
+        "offensive": 2.212086,
+        "defensive": 0.8332315
+    },
+    "Celta Vigo": {
+        "offensive": 2.161501,
+        "defensive": 0.9668815
+    },
+    "Villarreal": {
+        "offensive": 2.671712,
+        "defensive": 1.0188255
+    },
+    "Granada": {
+        "offensive": 1.881946,
+        "defensive": 0.6079265
+    },
+    "Eibar": {
+        "offensive": 2.115402,
+        "defensive": 1.0287385
+    },
+    "Cordoba": {
+        "offensive": 1.635424,
+        "defensive": 0.7613675
+    },
+    "Elche": {
+        "offensive": 1.988151,
+        "defensive": 0.6323385
+    },
+    "Almeria": {
+        "offensive": 2.295913,
+        "defensive": 0.5001465
+    },
+    "Las Palmas": {
+        "offensive": 1.982998,
+        "defensive": 0.4463955
+    },
+    "Sporting Gijon": {
+        "offensive": 1.885662,
+        "defensive": 0.5631765
+    },
+    "Real Betis": {
+        "offensive": 2.377572,
+        "defensive": 1.0510575
+    },
+    "Osasuna": {
+        "offensive": 1.968196,
+        "defensive": 0.9008315
+    },
+    "Alaves": {
+        "offensive": 2.230406,
+        "defensive": 0.9886335
+    },
+    "Leganes": {
+        "offensive": 1.87456,
+        "defensive": 0.8173775
+    },
+    "Girona": {
+        "offensive": 2.655411,
+        "defensive": 0.8971375
+    },
+    "Real Valladolid": {
+        "offensive": 1.83503,
+        "defensive": 0.6536275
+    },
+    "SD Huesca": {
+        "offensive": 1.854955,
+        "defensive": 1.0714945
+    },
+    "Mallorca": {
+        "offensive": 1.98191,
+        "defensive": 1.1790455
+    },
+    "Cadiz": {
+        "offensive": 1.906516,
+        "defensive": 0.8549335
+    },
+    "Aston Villa": {
+        "offensive": -0.5053745,
+        "defensive": -2.124799
+    },
+    "Everton": {
+        "offensive": -1.0553545,
+        "defensive": -2.1683
+    },
+    "Southampton": {
+        "offensive": -1.0525205,
+        "defensive": -2.95461
+    },
+    "Leicester": {
+        "offensive": -1.0843195,
+        "defensive": -2.455886
+    },
+    "West Bromwich Albion": {
+        "offensive": -1.3382295,
+        "defensive": -2.57057
+    },
+    "Sunderland": {
+        "offensive": -1.3835595,
+        "defensive": -2.504314
+    },
+    "Crystal Palace": {
+        "offensive": -0.8815085,
+        "defensive": -2.134054
+    },
+    "Chelsea": {
+        "offensive": -0.3372245,
+        "defensive": -2.02388
+    },
+    "West Ham": {
+        "offensive": -0.9583245,
+        "defensive": -2.353714
+    },
+    "Tottenham": {
+        "offensive": -0.5980865,
+        "defensive": -2.198731
+    },
+    "Arsenal": {
+        "offensive": -0.2500345,
+        "defensive": -1.536973
+    },
+    "Swansea": {
+        "offensive": -1.4830685,
+        "defensive": -2.407164
+    },
+    "Stoke": {
+        "offensive": -1.2126505,
+        "defensive": -2.246105
+    },
+    "Newcastle United": {
+        "offensive": -0.3132985,
+        "defensive": -2.050249
+    },
+    "Liverpool": {
+        "offensive": 0.1010815,
+        "defensive": -1.83808
+    },
+    "Manchester City": {
+        "offensive": 0.0464345,
+        "defensive": -1.789609
+    },
+    "Manchester United": {
+        "offensive": -0.6440555,
+        "defensive": -2.334566
+    },
+    "Hull": {
+        "offensive": -1.4532655,
+        "defensive": -2.712476
+    },
+    "Burnley": {
+        "offensive": -1.0865845,
+        "defensive": -2.48977
+    },
+    "Queens Park Rangers": {
+        "offensive": -1.0736685,
+        "defensive": -2.513
+    },
+    "Bournemouth": {
+        "offensive": -0.3444405,
+        "defensive": -2.15095
+    },
+    "Norwich": {
+        "offensive": -1.4321255,
+        "defensive": -2.69492
+    },
+    "Watford": {
+        "offensive": -1.3919705,
+        "defensive": -2.479763
+    },
+    "Middlesbrough": {
+        "offensive": -1.5567045,
+        "defensive": -2.175702
+    },
+    "Huddersfield": {
+        "offensive": -1.5508585,
+        "defensive": -2.373244
+    },
+    "Brighton": {
+        "offensive": -0.6763155,
+        "defensive": -2.088053
+    },
+    "Cardiff": {
+        "offensive": -1.1067655,
+        "defensive": -2.484774
+    },
+    "Fulham": {
+        "offensive": -0.8686545,
+        "defensive": -2.10314
+    },
+    "Wolverhampton Wanderers": {
+        "offensive": -1.1587605,
+        "defensive": -2.284753
+    },
+    "Sheffield United": {
+        "offensive": -1.2037715,
+        "defensive": -2.88479
+    },
+    "Leeds": {
+        "offensive": -0.8665045,
+        "defensive": -2.431649
+    },
+    "Brentford": {
+        "offensive": -0.6738355,
+        "defensive": -2.165344
+    },
+    "Nottingham Forest": {
+        "offensive": -0.9515985,
+        "defensive": -2.056051
+    },
+    "Luton": {
+        "offensive": -1.0830755,
+        "defensive": -3.0
+    },
+    "Ipswich": {
+        "offensive": -1.1477945,
+        "defensive": -2.697544
+    },
+    "Bayern Munich": {
+        "offensive": 3.0,
+        "defensive": 0.9430445
+    },
+    "Hamburger SV": {
+        "offensive": 1.338514,
+        "defensive": 0.4201735
+    },
+    "Bayer Leverkusen": {
+        "offensive": 2.283499,
+        "defensive": 0.7878135
+    },
+    "Hoffenheim": {
+        "offensive": 1.776239,
+        "defensive": 0.2112535
+    },
+    "Augsburg": {
+        "offensive": 1.52548,
+        "defensive": 0.3388555
+    },
+    "Hertha Berlin": {
+        "offensive": 1.59588,
+        "defensive": 0.3533935
+    },
+    "Werder Bremen": {
+        "offensive": 1.75986,
+        "defensive": 0.3047155
+    },
+    "Schalke 04": {
+        "offensive": 1.39243,
+        "defensive": 0.3125845
+    },
+    "Mainz 05": {
+        "offensive": 1.81405,
+        "defensive": 0.6404655
+    },
+    "Hannover 96": {
+        "offensive": 1.462743,
+        "defensive": -0.0575655
+    },
+    "Borussia Dortmund": {
+        "offensive": 2.210509,
+        "defensive": 0.4814245
+    },
+    "Borussia M.Gladbach": {
+        "offensive": 1.884929,
+        "defensive": 0.2959345
+    },
+    "Wolfsburg": {
+        "offensive": 1.788469,
+        "defensive": 0.5097625
+    },
+    "Eintracht Frankfurt": {
+        "offensive": 2.200251,
+        "defensive": 0.3355845
+    },
+    "VfB Stuttgart": {
+        "offensive": 2.329949,
+        "defensive": 0.5597555
+    },
+    "FC Cologne": {
+        "offensive": 1.712509,
+        "defensive": 0.3220255
+    },
+    "Freiburg": {
+        "offensive": 1.86167,
+        "defensive": 0.3957845
+    },
+    "Paderborn": {
+        "offensive": 1.545849,
+        "defensive": -0.0102155
+    },
+    "Ingolstadt": {
+        "offensive": 1.563571,
+        "defensive": 0.4747355
+    },
+    "Darmstadt": {
+        "offensive": 1.29004,
+        "defensive": -0.0795165
+    },
+    "RasenBallsport Leipzig": {
+        "offensive": 2.103351,
+        "defensive": 0.4645055
+    },
+    "Fortuna Duesseldorf": {
+        "offensive": 1.58806,
+        "defensive": 0.3229255
+    },
+    "Nuernberg": {
+        "offensive": 1.24257,
+        "defensive": 0.4957905
+    },
+    "Union Berlin": {
+        "offensive": 1.57126,
+        "defensive": 0.5977255
+    },
+    "Arminia Bielefeld": {
+        "offensive": 1.179096,
+        "defensive": -0.0407255
+    },
+    "Greuther Fuerth": {
+        "offensive": 1.03799,
+        "defensive": 0.2445245
+    },
+    "Bochum": {
+        "offensive": 1.64756,
+        "defensive": -0.0306455
+    },
+    "FC Heidenheim": {
+        "offensive": 1.627608,
+        "defensive": 0.1256855
+    },
+    "Holstein Kiel": {
+        "offensive": 1.401663,
+        "defensive": 0.1285445
+    },
+    "St. Pauli": {
+        "offensive": 1.61009,
+        "defensive": 0.4230425
+    },
+    "Verona": {
+        "offensive": 1.869072,
+        "defensive": 0.7406165
+    },
+    "Roma": {
+        "offensive": 2.467995,
+        "defensive": 1.1264265
+    },
+    "Lazio": {
+        "offensive": 2.373175,
+        "defensive": 1.1440945
+    },
+    "Juventus": {
+        "offensive": 2.513169,
+        "defensive": 1.3476905
+    },
+    "Udinese": {
+        "offensive": 2.14157,
+        "defensive": 0.8640325
+    },
+    "Palermo": {
+        "offensive": 1.723335,
+        "defensive": 0.6947295
+    },
+    "Genoa": {
+        "offensive": 1.839316,
+        "defensive": 0.9755595
+    },
+    "Sampdoria": {
+        "offensive": 1.867373,
+        "defensive": 0.5888455
+    },
+    "Sassuolo": {
+        "offensive": 2.074959,
+        "defensive": 0.7045215
+    },
+    "Napoli": {
+        "offensive": 2.549745,
+        "defensive": 1.3708355
+    },
+    "Inter": {
+        "offensive": 3.0,
+        "defensive": 1.3577815
+    },
+    "Atalanta": {
+        "offensive": 2.735781,
+        "defensive": 1.1343295
+    },
+    "Empoli": {
+        "offensive": 1.890041,
+        "defensive": 0.8883655
+    },
+    "Chievo": {
+        "offensive": 1.865518,
+        "defensive": 0.8936565
+    },
+    "Fiorentina": {
+        "offensive": 2.392553,
+        "defensive": 1.0666895
+    },
+    "AC Milan": {
+        "offensive": 2.74948,
+        "defensive": 1.1061745
+    },
+    "Torino": {
+        "offensive": 1.977727,
+        "defensive": 1.1970095
+    },
+    "Cagliari": {
+        "offensive": 2.111542,
+        "defensive": 0.5819715
+    },
+    "Cesena": {
+        "offensive": 1.825862,
+        "defensive": 0.6727935
+    },
+    "Parma": {
+        "offensive": 1.732751,
+        "defensive": 0.6402085
+    },
+    "Bologna": {
+        "offensive": 2.294195,
+        "defensive": 1.0876675
+    },
+    "Carpi": {
+        "offensive": 2.016772,
+        "defensive": 0.9001525
+    },
+    "Frosinone": {
+        "offensive": 2.080177,
+        "defensive": 0.7523615
+    },
+    "Pescara": {
+        "offensive": 2.057217,
+        "defensive": 0.4777945
+    },
+    "Crotone": {
+        "offensive": 1.840056,
+        "defensive": 0.4062195
+    },
+    "SPAL 2013": {
+        "offensive": 1.956506,
+        "defensive": 0.5853165
+    },
+    "Benevento": {
+        "offensive": 1.91819,
+        "defensive": 0.5367905
+    },
+    "Parma Calcio 1913": {
+        "offensive": 2.16278,
+        "defensive": 0.4848515
+    },
+    "Brescia": {
+        "offensive": 2.070667,
+        "defensive": 0.2103205
+    },
+    "Lecce": {
+        "offensive": 2.021361,
+        "defensive": 0.6067205
+    },
+    "Spezia": {
+        "offensive": 2.02201,
+        "defensive": 0.5909505
+    },
+    "Salernitana": {
+        "offensive": 1.822206,
+        "defensive": 0.3206055
+    },
+    "Venezia": {
+        "offensive": 1.864008,
+        "defensive": 0.4854745
+    },
+    "Monza": {
+        "offensive": 1.918994,
+        "defensive": 0.7465545
+    },
+    "Cremonese": {
+        "offensive": 1.873141,
+        "defensive": 0.6793155
+    },
+    "Como": {
+        "offensive": 2.174924,
+        "defensive": 1.2380375
+    },
+    "Lille": {
+        "offensive": -0.8284925,
+        "defensive": -2.169527
+    },
+    "Paris Saint Germain": {
+        "offensive": -0.2695825,
+        "defensive": -2.170047
+    },
+    "SC Bastia": {
+        "offensive": -1.6705635,
+        "defensive": -2.524919
+    },
+    "Rennes": {
+        "offensive": -0.9594445,
+        "defensive": -2.196338
+    },
+    "Marseille": {
+        "offensive": -0.7892135,
+        "defensive": -2.269797
+    },
+    "Caen": {
+        "offensive": -1.6564545,
+        "defensive": -2.481376
+    },
+    "Montpellier": {
+        "offensive": -1.0749495,
+        "defensive": -2.676406
+    },
+    "Nantes": {
+        "offensive": -1.2252515,
+        "defensive": -2.399268
+    },
+    "Guingamp": {
+        "offensive": -1.4391205,
+        "defensive": -2.372387
+    },
+    "Nice": {
+        "offensive": -0.8000555,
+        "defensive": -2.062599
+    },
+    "Monaco": {
+        "offensive": -0.6805505,
+        "defensive": -2.283718
+    },
+    "Toulouse": {
+        "offensive": -0.9335845,
+        "defensive": -2.176622
+    },
+    "Saint-Etienne": {
+        "offensive": -1.5652515,
+        "defensive": -2.747377
+    },
+    "Bordeaux": {
+        "offensive": -1.4141545,
+        "defensive": -2.665987
+    },
+    "Reims": {
+        "offensive": -1.1961455,
+        "defensive": -2.46515
+    },
+    "Lyon": {
+        "offensive": -0.6198325,
+        "defensive": -2.46151
+    },
+    "Lorient": {
+        "offensive": -1.3690325,
+        "defensive": -2.630688
+    },
+    "Metz": {
+        "offensive": -1.4726845,
+        "defensive": -2.491835
+    },
+    "Evian Thonon Gaillard": {
+        "offensive": -1.4924715,
+        "defensive": -2.705965
+    },
+    "Lens": {
+        "offensive": -0.8565315,
+        "defensive": -2.235168
+    },
+    "Angers": {
+        "offensive": -1.4130415,
+        "defensive": -2.427216
+    },
+    "Troyes": {
+        "offensive": -1.5993955,
+        "defensive": -3.0
+    },
+    "GFC Ajaccio": {
+        "offensive": -1.6097685,
+        "defensive": -2.379144
+    },
+    "Dijon": {
+        "offensive": -1.5726475,
+        "defensive": -2.753049
+    },
+    "Nancy": {
+        "offensive": -1.6473945,
+        "defensive": -2.538866
+    },
+    "Amiens": {
+        "offensive": -1.6205795,
+        "defensive": -2.203752
+    },
+    "Strasbourg": {
+        "offensive": -1.0856335,
+        "defensive": -2.531439
+    },
+    "Nimes": {
+        "offensive": -1.3480525,
+        "defensive": -2.493738
+    },
+    "Brest": {
+        "offensive": -1.0898745,
+        "defensive": -2.453026
+    },
+    "Clermont Foot": {
+        "offensive": -1.3870135,
+        "defensive": -2.60856
+    },
+    "Ajaccio": {
+        "offensive": -1.8759765,
+        "defensive": -2.510905
+    },
+    "Auxerre": {
+        "offensive": -1.4241865,
+        "defensive": -2.669847
+    },
+    "Le Havre": {
+        "offensive": -1.2226405,
+        "defensive": -2.639169
+    },
+    "Spartak Moscow": {
+        "offensive": -0.7247965,
+        "defensive": -1.812554
+    },
+    "FC Ufa": {
+        "offensive": -1.0453305,
+        "defensive": -2.125284
+    },
+    "CSKA Moscow": {
+        "offensive": -0.7014555,
+        "defensive": -1.866531
+    },
+    "Rubin Kazan": {
+        "offensive": -1.0042195,
+        "defensive": -2.153211
+    },
+    "FC Rostov": {
+        "offensive": -0.8885775,
+        "defensive": -2.126982
+    },
+    "FK Akhmat": {
+        "offensive": -1.0417965,
+        "defensive": -2.159294
+    },
+    "Zenit St. Petersburg": {
+        "offensive": -0.6110185,
+        "defensive": -1.650891
+    },
+    "Dinamo Moscow": {
+        "offensive": -0.6281365,
+        "defensive": -2.149834
+    },
+    "Mordovya": {
+        "offensive": -1.2542675,
+        "defensive": -2.133753
+    },
+    "Lokomotiv Moscow": {
+        "offensive": -0.8365565,
+        "defensive": -2.183442
+    },
+    "Amkar": {
+        "offensive": -1.4637875,
+        "defensive": -2.020094
+    },
+    "FC Krasnodar": {
+        "offensive": -0.7359975,
+        "defensive": -1.909823
+    },
+    "Kuban Krasnodar": {
+        "offensive": -1.1375305,
+        "defensive": -2.467641
+    },
+    "Ural": {
+        "offensive": -0.9784465,
+        "defensive": -2.183921
+    },
+    "Arsenal Tula": {
+        "offensive": -1.3107105,
+        "defensive": -2.487501
+    },
+    "Torpedo Moscow": {
+        "offensive": -1.5127405,
+        "defensive": -3.0
+    },
+    "Anzhi Makhachkala": {
+        "offensive": -1.5354875,
+        "defensive": -2.352094
+    },
+    "Krylya Sovetov Samara": {
+        "offensive": -1.1634975,
+        "defensive": -2.136261
+    },
+    "FC Orenburg": {
+        "offensive": -0.9689685,
+        "defensive": -2.400072
+    },
+    "Tom Tomsk": {
+        "offensive": -1.6706235,
+        "defensive": -2.549301
+    },
+    "Tosno": {
+        "offensive": -1.4358415,
+        "defensive": -2.033248
+    },
+    "SKA-Khabarovsk": {
+        "offensive": -1.5848105,
+        "defensive": -2.561322
+    },
+    "FC Yenisey Krasnoyarsk": {
+        "offensive": -1.1844845,
+        "defensive": -2.095381
+    },
+    "PFC Sochi": {
+        "offensive": -0.9646195,
+        "defensive": -2.091111
+    },
+    "FC Tambov": {
+        "offensive": -1.3785945,
+        "defensive": -2.767743
+    },
+    "Khimki": {
+        "offensive": -1.2302965,
+        "defensive": -2.336751
+    },
+    "FC Rotor Volgograd": {
+        "offensive": -1.5011485,
+        "defensive": -2.392851
+    },
+    "Nizhny Novgorod": {
+        "offensive": -1.3720585,
+        "defensive": -2.542323
+    },
+    "Fakel": {
+        "offensive": -1.2319095,
+        "defensive": -2.119663
+    },
+    "Baltika": {
+        "offensive": -0.9561665,
+        "defensive": -2.414751
+    },
+    "Akron": {
+        "offensive": -1.1178465,
+        "defensive": -2.583352
+    },
+    "Dynamo Makhachkala": {
+        "offensive": -1.4612585,
+        "defensive": -1.792183
+    }
+}
