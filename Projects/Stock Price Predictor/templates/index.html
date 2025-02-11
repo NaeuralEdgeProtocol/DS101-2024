@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        select, input, button {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .prediction-details {
+            margin-top: 15px;
+        }
+        .up {
+            color: green;
+        }
+        .down {
+            color: red;
+        }
+        .historical-prediction {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        .confidence-info,
+        .quality-high,
+        .quality-medium,
+        .quality-low {
+            display: none;
+        }
+        .warnings {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 4px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .market-context {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Price Prediction</h1>
+        <form id="predictionForm">
+            <div>
+                <label for="symbol">Select Stock Symbol:</label>
+                <select id="symbol" name="symbol" required>
+                    {% for symbol in symbols %}
+                    <option value="{{ symbol }}">{{ symbol }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" pattern="\d{2}/\d{2}/\d{4}">
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="loading" class="loading">
+            Predicting... Please wait...
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Set default date to today but don't set minimum
+        const dateInput = document.getElementById('date');
+        const today = new Date();
+        dateInput.value = today.toISOString().split('T')[0];
+
+        // Format date display for European format
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            }).replace(/\//g, '/');
+        }
+
+        document.getElementById('predictionForm').onsubmit = async (e) => {
+            e.preventDefault();
+            
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('result');
+            
+            loading.style.display = 'block';
+            result.style.display = 'none';
+            
+            try {
+                const formData = new FormData(e.target);
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    const direction = data.prediction_direction === 'up' ? '↑' : '↓';
+                    const directionClass = data.prediction_direction;
+                    
+                    let html = `
+                        <div class="success ${data.is_historical ? 'historical-prediction' : ''}">
+                            <h3>Prediction for ${data.symbol} on ${formatDate(data.date)}</h3>
+                            <div class="prediction-details">
+                                <p>${data.is_historical ? 'Historical ' : ''}Current Price: $${data.current_price}</p>
+                                <p>Predicted Price: $${data.predicted_price} 
+                                   <span class="${directionClass}">${direction} ${Math.abs(data.price_change).toFixed(2)}%</span>
+                                </p>
+                                ${data.prediction_warning ? `
+                                    <p style="color: orange;"><strong>Note:</strong> ${data.prediction_warning}</p>
+                                ` : ''}
+                            </div>
+                    `;
+                    
+                    if (data.intermediate_predictions) {
+                        html += '<h4>Intermediate Predictions:</h4><ul>';
+                        for (const [date, price] of Object.entries(data.intermediate_predictions)) {
+                            html += `<li>${formatDate(date)}: $${price}</li>`;
+                        }
+                        html += '</ul>';
+                    }
+                    
+                    html += '</div>';
+                    result.innerHTML = html;
+                    result.className = 'success';
+                } else {
+                    result.innerHTML = `<p>Error: ${data.error}</p>`;
+                    if (data.details) {
+                        result.innerHTML += `<pre>${JSON.stringify(data.details, null, 2)}</pre>`;
+                    }
+                    result.className = 'error';
+                }
+            } catch (error) {
+                result.innerHTML = `<p>Error: ${error.message}</p>`;
+                result.className = 'error';
+            } finally {
+                loading.style.display = 'none';
+                result.style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
