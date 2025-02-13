@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Meal Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .form-label {
+            font-size: 0.9rem;
+        }
+        .form-control {
+            font-size: 0.9rem;
+        }
+        button {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="font-size: 1.5rem;">Personalized Meal Planner</h2>
+        <form id="mealForm">
+            <div class="mb-3">
+                <label class="form-label">Weight (kg):</label>
+                <input type="number" name="weight" class="form-control" required min="1">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Height (cm):</label>
+                <input type="number" name="height" class="form-control" required min="50">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Age:</label>
+                <input type="number" name="age" class="form-control" required min="1" max="120">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender:</label>
+                <select name="gender" class="form-control" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Activity Level:</label>
+                <select name="activity_level" class="form-control" required>
+                    <option value="">Select Activity Level</option>
+                    <option value="sedentary">Sedentary</option>
+                    <option value="lightly active">Lightly Active</option>
+                    <option value="moderately active">Moderately Active</option>
+                    <option value="very active">Very Active</option>
+                    <option value="extra active">Extra Active</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Goal:</label>
+                <select name="goal" class="form-control" required>
+                    <option value="">Select Goal</option>
+                    <option value="maintain">Maintain</option>
+                    <option value="lose">Lose</option>
+                    <option value="gain">Gain</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Dietary Preference:</label>
+                <select name="dietary_preference" class="form-control" required>
+                    <option value="">Select Dietary Preference</option>
+                    <option value="normal">Normal</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Meal Plan</button>
+        </form>
+        <div id="mealPlan" class="mt-4"></div>
+    </div>
+
+    <script>
+        document.getElementById('mealForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+            fetch('/generate_meal_plan', { 
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                let mealPlanDiv = document.getElementById('mealPlan');
+                mealPlanDiv.innerHTML = `<h4>Daily Caloric Needs: ${data.daily_calories} kcal</h4>`;
+                mealPlanDiv.innerHTML += `<h5>Meal Plan:</h5>`;
+                data.meal_plan.forEach(meal => {
+                    let mealContent = `<div class="mt-3 p-3 border rounded">
+                        <h6>${meal.meal} (Total: ${meal.total_calories} kcal)</h6>
+                        <ul class="list-group">`;
+                    meal.items.forEach(item => {
+                        mealContent += `<li class="list-group-item">
+                            ${item.name} - ${item.weight.toFixed(2)}g (${item.calories.toFixed(2)} kcal, 
+                            Protein: ${(item.protein * (item.weight / 100)).toFixed(2)}g, 
+                            Fats: ${(item.fats * (item.weight / 100)).toFixed(2)}g, 
+                            Carbs: ${(item.carbs * (item.weight / 100)).toFixed(2)}g)
+                        </li>`;
+                    });
+                    mealContent += `</ul></div>`;
+                    mealPlanDiv.innerHTML += mealContent;
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
