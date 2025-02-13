@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:  # Add a volume mount for development
+    - ./frontend:/app  # Mount your local frontend directory
+    - frontend_node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    restart: always
+
+  backend:
+    build:
+      context: ./core
+      dockerfile: Dockerfile
+    ports:
+      - "5050:5050"
+    restart: always
+
+volumes:  # Define the named volume
+  frontend_node_modules:
