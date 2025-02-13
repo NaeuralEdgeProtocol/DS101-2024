@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Voigt-Kampf Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 0, 0.3);
+            animation: scanline 2s linear infinite;
+        }
+        .retro-glow {
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+        }
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid #00ff00;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-green-500 min-h-screen">
+    <div class="scanline"></div>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center retro-glow">Voigt-Kampf Analysis Results</h1>
+        <div class="max-w-2xl mx-auto bg-gray-800 rounded-lg shadow-lg p-6">
+            {% if error %}
+                <div class="bg-red-900/50 border border-red-500 text-red-400 px-4 py-3 rounded relative" role="alert">
+                    <strong class="font-bold">System Malfunction:</strong>
+                    <span class="block sm:inline">{{ error }}</span>
+                </div>
+            {% elif result %}
+                <div class="space-y-6">
+                    <div class="typing-animation">
+                        <h2 class="text-xl font-semibold">Subject: u/{{ result.username }}</h2>
+                    </div>
+                    
+                    <div class="bg-gray-900/50 p-6 rounded-lg border border-green-500">
+                        <p class="text-lg mb-4">
+                            Analysis Result: 
+                            <span class="font-bold {% if result.classification == 'Bot' %}text-red-500{% else %}text-green-400{% endif %}">
+                                {{ result.classification }}
+                            </span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border border-green-500/30 p-4 rounded">
+                                <p class="text-sm text-green-400 mb-1">Replicant Probability</p>
+                                <p class="text-2xl font-mono">{{ "%.2f"|format(result.bot_probability * 100) }}%</p>
+                            </div>
+                            <div class="border border-green-500/30 p-4 rounded">
+                                <p class="text-sm text-green-400 mb-1">Analysis Confidence</p>
+                                <p class="text-2xl font-mono">{{ "%.2f"|format(result.confidence_score * 100) }}%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold mb-4">Activity Pattern</h3>
+                        <div class="bg-gray-900/50 p-4 rounded-lg border border-green-500/30">
+                            <p class="text-xl font-mono">{{ "%.2f"|format(result.key_indicators.activity_pattern * 100) }}%</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            
+            <div class="mt-8 text-center">
+                <a href="/" 
+                   class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded transition duration-200 ease-in-out transform hover:scale-105">
+                    Initiate New Test
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
