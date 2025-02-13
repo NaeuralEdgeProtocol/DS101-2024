@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+
+    <!-- Form for text input -->
+    <form method="POST" action="/predict_text">
+        <textarea name="review" rows="6" cols="50" placeholder="Enter your review here..."></textarea><br>
+        <input type="submit" value="Analyze Text">
+    </form>
+
+    <br><br>
+
+    <!-- Form for file upload -->
+    <form method="POST" enctype="multipart/form-data" action="/predict_file">
+        <input type="file" name="file"><br>
+        <input type="submit" value="Upload and Analyze File">
+    </form>
+
+    <br><br>
+
+    <!-- Form for tweet input -->
+    <form method="POST" action="/predict_tweet">
+        <textarea name="tweet" rows="6" cols="50" placeholder="Enter a tweet here..."></textarea><br>
+        <input type="submit" value="Analyze Tweet">
+    </form>
+
+    <br><br>
+
+    <!-- Display the sentiment analysis result -->
+    <div>
+        {% if prediction_text %}
+            <h3>{{ task }} Sentiment: {{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>

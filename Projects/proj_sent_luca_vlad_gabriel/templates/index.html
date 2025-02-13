@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+
+    <!-- Form for text input -->
+    <h3>Analyze Text</h3>
+    <form method="POST" action="/predict_text">
+        <textarea name="review" rows="6" cols="50" placeholder="Enter your review here..."></textarea><br>
+        <input type="submit" value="Analyze Text">
+    </form>
+
+    <br><br>
+
+    <!-- Form for file upload -->
+    <h3>Upload File for Analysis</h3>
+    <form method="POST" enctype="multipart/form-data" action="/predict_file">
+        <input type="file" name="file"><br>
+        <input type="submit" value="Upload and Analyze File">
+    </form>
+
+    <br><br>
+
+    <!-- Form for tweet input -->
+    <h3>Analyze Tweet</h3>
+    <form method="POST" action="/predict_tweet">
+        <textarea name="tweet" rows="6" cols="50" placeholder="Enter a tweet here..."></textarea><br>
+        <input type="submit" value="Analyze Tweet">
+    </form>
+
+    <br><br>
+
+    <!-- Display Sentiment and Flagging Option -->
+    <div>
+        {% if prediction_text %}
+            <h3>{{ task }} Sentiment: {{ prediction_text }}</h3>
+            <!-- Flagging Button -->
+            <form method="POST" action="/flag_analysis">
+                <input type="hidden" name="analysis_text" value="{{ prediction_text }}">
+                <input type="hidden" name="task_type" value="{{ task }}">
+                <input type="submit" value="Flag as Wrong/Suspect">
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>
