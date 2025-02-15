@@ -13,8 +13,7 @@ from collections import deque, namedtuple
 import torchvision.transforms as transforms
 import torchvision
 from PIL import Image
-# from insightface.app import FaceAnalysis  # Removed insightface
-from facenet_pytorch import MTCNN, InceptionResnetV1  # Added FaceNet PyTorch
+from facenet_pytorch import MTCNN, InceptionResnetV1
 
 # Define a namedtuple to hold match information
 Match = namedtuple("Match", ["frame_idx", "track_id", "similarity", "bbox", "frame_image", "feature_source"])
