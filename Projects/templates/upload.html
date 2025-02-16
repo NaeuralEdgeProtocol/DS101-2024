@@ -1,0 +1,241 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drone Flight Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #prediction-result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .error {
+            background-color: #ffdddd;
+            color: red;
+        }
+        .success {
+            background-color: #ddffdd;
+            color: green;
+        }
+        .plot-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .plot-item {
+            max-width: 100%;
+            margin: 10px;
+        }
+        .plot-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drone Flight Prediction</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Predict Flight Status</button>
+    </form>
+    <div id="prediction-result"></div>
+    <div id="plots-container" class="plot-container"></div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const resultDiv = document.getElementById('prediction-result');
+            const plotsContainer = document.getElementById('plots-container');
+            
+            resultDiv.innerHTML = 'Processing...';
+            resultDiv.className = '';
+            plotsContainer.innerHTML = '';
+            
+            axios.post('/predict', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(response => {
+                if (!response.data.error) {
+                    const pred = response.data.prediction;
+                    const plots = response.data.plots;
+                    
+                    // Show prediction result
+                    resultDiv.innerHTML = `
+                        <h2>Prediction Result</h2>
+                        <p>Probability of Faulty Flight: ${(pred.probability * 100).toFixed(2)}%</p>
+                        <p>Flight Status: ${pred.is_faulty ? 'FAULTY' : 'NORMAL'}</p>
+                        <p>Threshold: ${pred.threshold}</p>
+                    `;
+                    resultDiv.className = pred.is_faulty ? 'error' : 'success';
+                    
+                    // Show plots
+                    const plotTitles = {
+                        'trajectory_3d': '3D Trajectory',
+                        'velocity_plots': 'Velocity Components (X, Y, Z)',
+                        'orientation_plots': 'Orientation (Roll, Pitch, Yaw)',
+                        'angular_velocity_plots': 'Angular Velocity'
+                    };
+                    
+                    Object.keys(plots).forEach(plotKey => {
+                        const plotDiv = document.createElement('div');
+                        plotDiv.className = 'plot-item';
+                        plotDiv.innerHTML = `
+                            <h3>${plotTitles[plotKey]}</h3>
+                            <img src="data:image/png;base64,${plots[plotKey]}" alt="${plotTitles[plotKey]}">
+                        `;
+                        plotsContainer.appendChild(plotDiv);
+                    });
+                } else {
+                    resultDiv.innerHTML = `Error: ${response.data.message}`;
+                    resultDiv.className = 'error';
+                }
+            })
+            .catch(error => {
+                resultDiv.innerHTML = `Error: ${error.response ? error.response.data.message : error.message}`;
+                resultDiv.className = 'error';
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drone Flight Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #prediction-result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .error {
+            background-color: #ffdddd;
+            color: red;
+        }
+        .success {
+            background-color: #ddffdd;
+            color: green;
+        }
+        .plot-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .plot-item {
+            max-width: 100%;
+            margin: 10px;
+        }
+        .plot-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        #model-select {
+            margin: 10px 0;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drone Flight Prediction</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <select id="model-select" name="model" required>
+            <option value="">Select Prediction Model</option>
+            <option value="BiLSTM">Bidirectional LSTM</option>
+            <!-- <option value="Transformer">Transformer Model</option>
+            <option value="TemporalCNN">Temporal CNN Model</option>
+            <option value="HybridCNNTransformer">Hybrid CNN-Transformer Model</option> -->
+        </select>
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Predict Flight Status</button>
+    </form>
+    <div id="prediction-result"></div>
+    <div id="plots-container" class="plot-container"></div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const resultDiv = document.getElementById('prediction-result');
+            const plotsContainer = document.getElementById('plots-container');
+            
+            resultDiv.innerHTML = 'Processing...';
+            resultDiv.className = '';
+            plotsContainer.innerHTML = '';
+            
+            axios.post('/predict', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(response => {
+                if (!response.data.error) {
+                    const pred = response.data.prediction;
+                    const plots = response.data.plots;
+                    
+                    // Show prediction result
+                    resultDiv.innerHTML = `
+                        <h2>Prediction Result</h2>
+                        <p>Model Used: ${formData.get('model')}</p>
+                        <p>Probability of Faulty Flight: ${(pred.probability * 100).toFixed(2)}%</p>
+                        <p>Flight Status: ${pred.is_faulty ? 'FAULTY' : 'NORMAL'}</p>
+                        <p>Threshold: ${pred.threshold}</p>
+                    `;
+                    resultDiv.className = pred.is_faulty ? 'error' : 'success';
+                    
+                    // Show plots
+                    const plotTitles = {
+                        'trajectory_3d': '3D Trajectory',
+                        'velocity_plots': 'Velocity Components (X, Y, Z)',
+                        'orientation_plots': 'Orientation (Roll, Pitch, Yaw)',
+                        'angular_velocity_plots': 'Angular Velocity'
+                    };
+                    
+                    Object.keys(plots).forEach(plotKey => {
+                        const plotDiv = document.createElement('div');
+                        plotDiv.className = 'plot-item';
+                        plotDiv.innerHTML = `
+                            <h3>${plotTitles[plotKey]}</h3>
+                            <img src="data:image/png;base64,${plots[plotKey]}" alt="${plotTitles[plotKey]}">
+                        `;
+                        plotsContainer.appendChild(plotDiv);
+                    });
+                } else {
+                    resultDiv.innerHTML = `Error: ${response.data.message}`;
+                    resultDiv.className = 'error';
+                }
+            })
+            .catch(error => {
+                resultDiv.innerHTML = `Error: ${error.response ? error.response.data.message : error.message}`;
+                resultDiv.className = 'error';
+            });
+        });
+    </script>
+</body>
+</html>
